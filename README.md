@@ -1,4 +1,4 @@
-<img src="../assets/db_foto.png" alt="Logo Fatec" width="200" height="150" />
+<img src="assets/db_foto.png" alt="Banco de dados Logo" width="200" height="150"/>
 
 # Infomasters
 
