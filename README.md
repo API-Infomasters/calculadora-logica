@@ -1,3 +1,5 @@
+
+
 # Infomasters
 
 # 🧮 Projeto: Sequências Lógicas em VisuAlg
@@ -8,16 +10,34 @@ Projeto educacional implementado em **VisuAlg** com o objetivo de demonstrar e c
 
 ## 📑 Índice
 
-1. [Funcionalidades](#funcionalidades)
+0. [Descrição do Desafio](#Descrição-do-desafio)
+1. [BackLog do Produto](#BackLog-do-Produto)
 2. [Pré-requisitos](#pré-requisitos)
 3. [Instalação e Uso](#instalação-e-uso)
 4. [Estrutura do Código](#estrutura-do-código)
 5. [Contribuição](#contribuição)
-6. [Licença](#licença)
 
 ---
 
-## 1. ✨ Funcionalidades
+---
+
+## 0. ✨ Descrição do Desáfio
+
+### Números primos:
+
+O maior desafio aqui é criar e validar uma função auxiliar ÉPrimo(N) eficiente. O cálculo do N-ésimo termo não é direto (não há uma fórmula simples); exigirá um laço de repetição (iteração) até que o contador de primos atinja a posição N.
+
+### Sequência Geométrica:
+
+Requer a implementação precisa da fórmula An = A1 * Q ^ (N - 1) com atenção especial ao tratamento das entradas do termo inicial (A1), do índice (n) e da razão (Q)
+
+### Sequência de Cubo: 
+
+Cubos, Quadrados Perfeitos, Triângulos Perfeitos: Estas sequências são as mais ligadas à aplicação em áreas. O desafio é garantir o cálculo correto do N-ésimo termo e, em seguida, gerar os 50 termos seguintes para permitir uma análise de projeção ou continuidade do padrão. Isso exige um laço de repetição com limite fixo.
+
+---
+
+## 1. ✨ BackLog do Produto
 
 O projeto oferece a demonstração e o cálculo das seguintes sequências (adicione ou remova itens conforme o seu projeto):
 
@@ -277,12 +297,88 @@ O código principal está contido no arquivo:
   </tbody>
 </table>
 
----
+#### Tabela de User Stories:
 
-## 6. 📄 Licença
+<table>
+  <thead>
+    <tr>
+      <th align="left">User Story</th>
+      <th align="left">Status do DoR</th>
+      <th align="left">Tarefas (O COMO)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left" rowspan="3">1. Sequência de Números Primos (Rank 1 - Alta)</td>
+      <td align="left" rowspan="3">✅ Pronto</td>
+      <td align="left">1.1. Rascunhar o algoritmo para encontrar o N-ésimo primo (função de validação de primos).</td>
+    </tr>
+    <tr>
+      <td align="left">1.2. Implementar a função principal no VisuAlg para calcular o N-ésimo termo.</td>
+    </tr>
+    <tr>
+      <td align="left">1.3. Implementar o laço para iniciar a sequência a partir do termo fornecido.</td>
+    </tr>
+    <tr>
+      <td align="left" rowspan="3">2. Sequência de Cubos (Rank 2 - Alta)</td>
+      <td align="left" rowspan="3">✅ Pronto</td>
+      <td align="left">2.1. Rascunhar a lógica de cálculo do n-ésimo termo (n<sup>3</sup>).</td>
+    </tr>
+    <tr>
+      <td align="left">2.2. Implementar o algoritmo no VisuAlg para calcular e exibir o N-ésimo termo.</td>
+    </tr>
+    <tr>
+      <td align="left">2.3. Adicionar o laço de repetição para exibir os 50 termos seguintes.</td>
+    </tr>
+    <tr>
+      <td align="left" rowspan="3">3. Sequência Geométrica (Rank 3 - Alta)</td>
+      <td align="left" rowspan="3">✅ Pronto</td>
+      <td align="left">3.1. Rascunhar a lógica para calcular o N-ésimo termo de uma P.G. (usando a constante/razão fornecida).</td>
+    </tr>
+    <tr>
+      <td align="left">3.2. Implementar o algoritmo de P.G. no VisuAlg com entrada para a constante.</td>
+    </tr>
+    <tr>
+      <td align="left">3.3. Testar o algoritmo com diferentes cenários de razão.</td>
+    </tr>
+  </tbody>
+</table>
 
-Este projeto está sob a licença [MIT](LINK_PARA_O_ARQUIVO_LICENSE).
 
----
 
-###### Desenvolvido com 💙 por [Seu Nome/GitHub Username]
+###### Desenvolvido com 💙 por Infomasters
+
+### Scrum Master
+
+- Maria Clara Farkas
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maria-clara-farkas-6a6b4534a)
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:maria.farkas@fatec.sp.gov.br)
+
+### PO (Project Owner)
+
+- Luis Gustavo Graciano 
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luisgustavogracianomanutencaoaeronautica)
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:luis.silva202@fatec.sp.gov.br)
+
+## Dev Team 
+
+- Igor Ruiz
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/igor-ruiz-a56a1b30b)
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:igor.ruiz@fatec.sp.gov.br)
+
+- Breno Cefas
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-cefas-7aa909271)
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Breno.santos32@fatec.sp.gov.br)
+
+- Vitor Trajai
+
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:vitor.ribeiro31@fatec.sp.gov.br)
+
+- João Medeiros
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jvmedeiros)
+[![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joao.gallina@fatec.sp.gov.br)
