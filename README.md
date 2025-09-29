@@ -352,34 +352,34 @@ O código principal está contido no arquivo:
 
 - Maria Clara Farkas
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maria-clara-farkas-6a6b4534a)
+<a href="https://www.linkedin.com/in/maria-clara-farkas-6a6b4534a" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:maria.farkas@fatec.sp.gov.br)
 
 ### PO (Project Owner)
 
 - Luis Gustavo Graciano 
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luisgustavogracianomanutencaoaeronautica)
+<a href="https://www.linkedin.com/in/luisgustavogracianomanutencaoaeronautica" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:luis.silva202@fatec.sp.gov.br)
 
 ## Dev Team 
 
 - Igor Ruiz
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/igor-ruiz-a56a1b30b)
+<a href="https://www.linkedin.com/in/igor-ruiz-a56a1b30b" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:igor.ruiz@fatec.sp.gov.br)
 
 - Breno Cefas
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-cefas-7aa909271)
+<a href="https://www.linkedin.com/in/breno-cefas-7aa909271" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Breno.santos32@fatec.sp.gov.br)
 
 - Vitor Trajai
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vitor-trajai-1b5393387)
+<a href="https://www.linkedin.com/in/vitor-trajai-1b5393387" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:vitor.ribeiro31@fatec.sp.gov.br)
 
 - João Medeiros
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jvmedeiros)
+<a href="https://www.linkedin.com/in/jvmedeiros" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 [![Email](https://img.shields.io/badge/-Send_Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joao.gallina@fatec.sp.gov.br)
