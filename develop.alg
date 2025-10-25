@@ -1,33 +1,39 @@
 Algoritmo "API: Calculadora de Sequências Lógicas"
-// Disciplina   : Algoritmos
-// Professor   : Fabio Sahba
-// Descrição   : O algoritmo abaixo é um simples menu que oferece ao usuário 4 opções de funções matemáticas e uma opção de encerrar o programa.
-// Autor(a)    : Igor Ruiz, Maria Clara, Vitor Trajai, Luis Gustavo Graciano, Breno Cefas e João Medeiros.
-// Data atual  : 23/10/2025
 
 Var
 
-   qtd_termos_alt, i_alt, razao_alt, opcao_alt, opcao: inteiro
+   // Variaveis globais
+   opcao: inteiro
 
-   n, contador, numero, i, qtd_divisores, primo : inteiro
+   // Numeros primos
+   n_pri, contador_pri, numero_pri, i_pri, qtd_divisores_pri, primo_pri : inteiro
 
-   termo, x: inteiro
+   // Cubos perfeitos
+   termo_cub, i_cub: inteiro
+   valor_cub: real
 
-   iterador, primeiro_termo, numero_termos, razao, enesimo_termo: inteiro
+   // Progressao geometrica
+   iterador_geo, primeiro_termo_geo, numero_termos_geo, razao_geo, enesimo_termo_geo: inteiro
 
+   // Sequencia alternada
+   qtd_termos_alt, i_alt, razao_alt, opcao_alt: inteiro
    alt_sinal_alt, termo_alt: real
+
+   // Sequencia de tribonacci
+   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
 
 Inicio
 
-   enquanto (opcao <> 5) faca
+   enquanto (opcao <> 6) faca
 
       escreval ("------MENU CALCULADORA-------")
       escreval ("")
       escreval (" 01 - Numeros Primos ")
-      escreval (" 02 - Sequência de cubos perfeitos ")
+      escreval (" 02 - Sequência de Cubos Perfeitos ")
       escreval (" 03 - Progressão Geométrica")
-      escreval (" 04 - Sequência alternada")
-      escreval (" 05 - Sair")
+      escreval (" 04 - Sequência Alternada")
+      escreval (" 05 - Sequência de Tribonacci")
+      escreval (" 06 - Sair")
       escreval ("")
       escreval ("-----------------------------")
       leia (opcao)
@@ -36,71 +42,79 @@ Inicio
       escolha (opcao)
 
       caso 1
-         // Numeros primos
+         // Sequencia de numeros primos
 
-         escreva ("Digite o valor de n (posição do primo): ")
-         leia (n)
+         escreva ("Digite o valor de n (posição do número primo): ")
+         leia (n_pri)
          escreval ("")
 
-         contador <- 0
-         numero <- 1
+         contador_pri <- 0
+         numero_pri <- 1
 
-         enquanto contador < n faca
-            numero <- numero + 1
-            qtd_divisores <- 0
+         enquanto contador_pri < n_pri faca
+            numero_pri <- numero_pri + 1
+            qtd_divisores_pri <- 0
 
 
-            para i de 1 ate numero faca
-               se numero % i = 0 entao
-                  qtd_divisores <- qtd_divisores + 1
+            para i_pri de 1 ate numero_pri faca
+               se numero_pri % i_pri = 0 entao
+                  qtd_divisores_pri <- qtd_divisores_pri + 1
                fimse
             fimpara
 
-            se qtd_divisores = 2 entao
-               contador <- contador + 1
-               primo <- numero
+            se qtd_divisores_pri = 2 entao
+               contador_pri <- contador_pri + 1
+               primo_pri <- numero_pri
             fimse
 
          fimenquanto
 
-         escreval("O ", n, "º número primo é:", primo)
+         escreval("O ", n_pri, "º número primo é:", primo_pri)
          escreval ("")
 
       caso 2
-         // Sequencia de numeros cubicos
+         // Sequencia de cubos perfeitos
 
-         escreva ("Digite um termo da sequência de números cúbicos:")
-         leia (termo)
+         escreva ("Digite um termo da sequência de cubos perfeitoss:")
+         leia (termo_cub)
          escreval ("")
+         escreval ("Seu valor correspondente na sequência é:", termo_cub ^ 3)
 
-         escreval ("Seu valor correspondente na sequência é:", termo * termo * termo)
+         para i_cub de 1 ate 50 faca
 
-         para x de 1 ate 50 faca
-            escreval ("O termo", x + termo, " da sequência é:", (termo + x) * (termo + x) * (termo + x))
+            valor_cub <- (termo_cub + i_cub) ^ 3
+            escreval ("O termo", i_cub + termo_cub, " da sequência é:", valor_cub)
+
          fimpara
 
+         escreval ("")
+         escreval ("Sequência completa com", i_cub, " termos!")
+         escreval ("")
+
       caso 3
-         // Sequencia geometrica
+         // Progressao geometrica
 
          escreva ("Digite o valor do primeiro termo:")
-         leia (primeiro_termo)
+         leia (primeiro_termo_geo)
          escreval ("")
 
          escreva ("Digite o número de termos da progressão:")
-         leia (numero_termos)
+         leia (numero_termos_geo)
          escreval ("")
 
          escreva ("Digite o valor da razão:")
-         leia (razao)
+         leia (razao_geo)
          escreval ("")
 
-         enesimo_termo <- primeiro_termo
+         enesimo_termo_geo <- primeiro_termo_geo
 
-         para iterador de 1 ate numero_termos faca
-            escreval("Termo ", iterador, " = ", enesimo_termo)
-            enesimo_termo <- enesimo_termo * razao
+         para iterador_geo de 1 ate numero_termos_geo faca
+            escreval("Termo ", iterador_geo, " = ", enesimo_termo_geo)
+            enesimo_termo_geo <- enesimo_termo_geo * razao_geo
          fimpara
 
+         escreval ("")
+         escreval ("Progressão geométrica completa com", numero_termos_geo, " termos!")
          escreval ("")
 
       caso 4
@@ -135,10 +149,9 @@ Inicio
          leia(qtd_termos_alt)
          escreval ("")
 
-         enquanto (qtd_termos_alt >= 31) ou (qtd_termos_alt <= 0) faca
+         enquanto (qtd_termos_alt <= 0) faca
 
-            escreval ("Por limitações técnicas, a sequência alternada permite até 30 termos.")
-            escreval ("Por favor, insira um valor entre 1 e 30.")
+            escreval ("Número inválido, digite novamente.")
             leia (qtd_termos_alt)
             escreval ("")
 
@@ -174,7 +187,7 @@ Inicio
 
          escreval ("O termo 1 da sequência é:", termo_alt)
 
-         para i_alt de 1 ate qtd_termos_alt -1 faca
+         para i_alt de 1 ate qtd_termos_alt faca
 
             termo_alt <- (termo_alt * razao_alt)
             escreval ("O termo", i_alt + 1, " da sequência é:", termo_alt)
@@ -182,14 +195,36 @@ Inicio
          fimpara
 
          escreval ("")
-         escreval ("Sequência alternada completa com", qtd_termos_alt, " termos!")
+         escreval ("Sequência alternada completa com", qtd_termos_alt + 1, " termos!")
          escreval ("")
 
+      caso 5
+         //Sequencia de tribonacci
+
+         escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
+         leia (termo_um_tri)
+
+         termo_dois_tri <- 1
+         termo_tres_tri <- 1
+
+         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_um_tri, ":")
+         escreval ("Termo 1: ", termo_um_tri)
+         escreval ("Termo 2: ", termo_dois_tri)
+         escreval ("Termo 3: ", termo_tres_tri)
+
+         para contador_tri de 4 ate 52 faca
+            termo_seguinte_tri <- termo_um_tri + termo_dois_tri + termo_tres_tri
+            escreval ("Termo", contador_tri, ": ", termo_seguinte_tri)
+
+            termo_um_tri <- termo_dois_tri
+            termo_dois_tri <- termo_tres_tri
+            termo_tres_tri <- termo_seguinte_tri
+         fimpara
+
+         escreval ("")
+         escreval ("Sequência de Tribonacci completa com 52 termos!")
+
       fimescolha
-
-      se (opcao = 5) entao
-
-      fimse
 
    fimenquanto
 
