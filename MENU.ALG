@@ -22,9 +22,12 @@ Var
    // Sequencia de tribonacci
    termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
 
+   // Sequencia de fibonacci
+   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
+
 Inicio
 
-   enquanto (opcao <> 6) faca
+   enquanto (opcao <> 7) faca
 
       escreval ("------MENU CALCULADORA-------")
       escreval ("")
@@ -33,7 +36,8 @@ Inicio
       escreval (" 03 - Progressão Geométrica")
       escreval (" 04 - Sequência Alternada")
       escreval (" 05 - Sequência de Tribonacci")
-      escreval (" 06 - Sair")
+      escreval (" 06 - Sequência de Fibonacci")
+      escreval (" 07 - Sair")
       escreval ("")
       escreval ("-----------------------------")
       leia (opcao)
@@ -223,6 +227,37 @@ Inicio
 
          escreval ("")
          escreval ("Sequência de Tribonacci completa com 52 termos!")
+
+      caso 6
+         // Sequencia de fibonacci
+
+         // Solicita o primeiro termo ao usuário
+         escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
+         leia (primeiro_termo_fib)
+
+         // Define o segundo termo como 1 (padrão da sequência de Fibonacci)
+         segundo_termo_fib <- 1
+
+         // Exibe o cabeçalho
+         escreval ("Sequência de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
+         escreval ("Termo 1: ", primeiro_termo_fib)
+         escreva ("Termo 2: ", segundo_termo_fib)
+
+         // Calcula e exibe os próximos 50 termos (termos 3 a 52)
+         para contador_fib de 3 ate 52 faca
+            proximo_termo_fib <- primeiro_termo_fib + segundo_termo_fib
+            escreval ("Termo ", contador_fib, ": ", proximo_termo_fib)
+
+            // Atualiza os valores para a próxima iteração
+            primeiro_termo_fib <- segundo_termo_fib
+            segundo_termo_fib <- proximo_termo_fib
+         fimpara
+
+         escreval ("")
+         escreval ("Sequência de Fibonacci completa com 52 termos!")
+         escreval ("")
+
+      caso 7
 
       fimescolha
 
