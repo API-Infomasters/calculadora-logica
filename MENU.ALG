@@ -240,8 +240,8 @@ Inicio
 
          // Exibe o cabeçalho
          escreval ("Sequência de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
-         escreval ("Termo 1: ", primeiro_termo_fib)
-         escreva ("Termo 2: ", segundo_termo_fib)
+         escreval ("Termo 1:  ", primeiro_termo_fib)
+         escreval ("Termo 2:  ", segundo_termo_fib)
 
          // Calcula e exibe os próximos 50 termos (termos 3 a 52)
          para contador_fib de 3 ate 52 faca
