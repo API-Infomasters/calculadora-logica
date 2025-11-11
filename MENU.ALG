@@ -1,5 +1,6 @@
 Algoritmo "API: Calculadora de Sequências Lógicas"
 
+
 Var
 
    // Variaveis globais
@@ -20,10 +21,12 @@ Var
    alt_sinal_alt, termo_alt: real
 
    // Sequencia de tribonacci
-   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
+   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri: real
+   contador_tri: inteiro
 
    // Sequencia de fibonacci
-   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
+   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib: real
+   contador_fib: inteiro
 
 Inicio
 
@@ -206,12 +209,12 @@ Inicio
          //Sequencia de tribonacci
 
          escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
-         leia (termo_um_tri)
+         leia (termo_tres_tri)
 
+         termo_um_tri <- 1
          termo_dois_tri <- 1
-         termo_tres_tri <- 1
 
-         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_um_tri, ":")
+         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_tres_tri, ":")
          escreval ("Termo 1: ", termo_um_tri)
          escreval ("Termo 2: ", termo_dois_tri)
          escreval ("Termo 3: ", termo_tres_tri)
@@ -231,24 +234,19 @@ Inicio
       caso 6
          // Sequencia de fibonacci
 
-         // Solicita o primeiro termo ao usuário
          escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
-         leia (primeiro_termo_fib)
+         leia (segundo_termo_fib)
 
-         // Define o segundo termo como 1 (padrão da sequência de Fibonacci)
-         segundo_termo_fib <- 1
+         primeiro_termo_fib <- 1
 
-         // Exibe o cabeçalho
-         escreval ("Sequência de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
-         escreval ("Termo 1: ", primeiro_termo_fib)
-         escreva ("Termo 2: ", segundo_termo_fib)
+         escreval ("Sequência de Fibonacci com primeiro termo ", segundo_termo_fib, ":")
+         escreval ("Termo  1:  ", primeiro_termo_fib)
+         escreval ("Termo  2:  ", segundo_termo_fib)
 
-         // Calcula e exibe os próximos 50 termos (termos 3 a 52)
          para contador_fib de 3 ate 52 faca
             proximo_termo_fib <- primeiro_termo_fib + segundo_termo_fib
             escreval ("Termo ", contador_fib, ": ", proximo_termo_fib)
 
-            // Atualiza os valores para a próxima iteração
             primeiro_termo_fib <- segundo_termo_fib
             segundo_termo_fib <- proximo_termo_fib
          fimpara
