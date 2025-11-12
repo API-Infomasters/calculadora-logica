@@ -25,14 +25,19 @@ Var
    // Sequencia de fibonacci
    primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
 
-   // Sequência de triangulos perfeitos
+   // Sequï¿½ncia de triangulos perfeitos
    n, i, m, indice, soma, proximo: inteiro
    termos: vetor[1..51] de inteiro
    continuar: caractere
    pertence: logico
+
+// Sequencia fatorial
+   n_fat, i_fat, t_fat: inteiro
+   fatorial_fat: real
+
 Inicio
 
-   enquanto (opcao <> 7) faca
+   enquanto (opcao <> 10) faca
 
       escreval ("------MENU CALCULADORA-------")
       escreval ("")
@@ -42,7 +47,8 @@ Inicio
       escreval (" 04 - SequÃªncia Alternada")
       escreval (" 05 - SequÃªncia de Tribonacci")
       escreval (" 06 - SequÃªncia de Fibonacci")
-      escreval (" 09 - Sequência de triangulos perfeitos")
+      escreval (" 07 - SequÃªncia Fatorial")
+      escreval (" 09 - Sequï¿½ncia de triangulos perfeitos")
       escreval (" 10 - Sair")
       escreval ("")
       escreval ("-----------------------------")
@@ -263,19 +269,42 @@ Inicio
          escreval ("SequÃªncia de Fibonacci completa com 52 termos!")
          escreval ("")
 
+caso 7
+
+escreva ("Digite um nÃºmero para ver a sua sequÃªncia fatorial: ")
+      leia (n_fat)
+
+      enquanto n_fat < 0 faca
+         escreval("Erro: SÃ³ Ã© possivel calcular o fatorial de nÃºmeros positivos.")
+         leia (n_fat)
+      fimenquanto
+
+      escreval ("SequÃªncia Fatorial de 0! atÃ© ", n_fat, "! ")
+
+      para i_fat de 0 ate n_fat faca
+
+         fatorial_fat <- 1
+
+         para t_fat de 1 ate i_fat faca
+            fatorial_fat <- fatorial_fat * t_fat
+         fimpara
+
+         escreval (i_fat, "! = ", fatorial_fat)
+      fimpara
+
       caso 9
-         // Sequência de triângulos perfeitos
+         // Sequï¿½ncia de triï¿½ngulos perfeitos
          repita
-            // Pede o número até ser válido
+            // Pede o nï¿½mero atï¿½ ser vï¿½lido
             repita
                escreva("Digite un valor entero positivo: ")
                leia(n)
                se n < 1 entao
-                  escreval("Valor inválido! Insira um valro inteiro e positivo.!")
+                  escreval("Valor invï¿½lido! Insira um valro inteiro e positivo.!")
                fimse
             ate n >= 1
 
-            // Verifica se n pertence à sequência triangular
+            // Verifica se n pertence ï¿½ sequï¿½ncia triangular
             pertence <- falso
             i <- 1
             enquanto (i * (i + 1)) div 2 <= n faca
@@ -294,21 +323,21 @@ Inicio
             escreval("")
 
             se pertence = verdadeiro entao
-               escreval("n = ", n, " pertenece a sequência de números triangulares.")
+               escreval("n = ", n, " pertenece a sequï¿½ncia de nï¿½meros triangulares.")
             senao
                proximo <- (i * (i + 1)) div 2
-               escreval("n = ", n, " não pertenece a sequência de números triangulares.")
-               escreval("O próximo termo da sequência é: ", proximo)
+               escreval("n = ", n, " nï¿½o pertenece a sequï¿½ncia de nï¿½meros triangulares.")
+               escreval("O prï¿½ximo termo da sequï¿½ncia ï¿½: ", proximo)
             fimse
 
             escreval("")
-            escreval("Os 50 termos seguintes são:")
+            escreval("Os 50 termos seguintes sï¿½o:")
             para indice de 2 ate 51 faca
                escreval("T_", n + indice - 1, " = ", termos[indice])
             fimpara
 
             escreval("")
-            escreva("Desea continuar a execução(S/N)? ")
+            escreva("Desea continuar a execuï¿½ï¿½o(S/N)? ")
             leia(continuar)
 
          ate (continuar = "N") ou (continuar = "n")
