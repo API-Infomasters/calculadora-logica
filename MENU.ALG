@@ -270,6 +270,7 @@ Inicio
          escreval ("")
 
 caso 7
+// Sequencia fatorial
 
 escreva ("Digite um número para ver a sua sequência fatorial: ")
       leia (n_fat)
