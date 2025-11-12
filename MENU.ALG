@@ -1,6 +1,5 @@
 Algoritmo "API: Calculadora de SequÃªncias LÃ³gicas"
 
-
 Var
 
    // Variaveis globais
@@ -21,13 +20,16 @@ Var
    alt_sinal_alt, termo_alt: real
 
    // Sequencia de tribonacci
-   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri: real
-   contador_tri: inteiro
+   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
 
    // Sequencia de fibonacci
-   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib: real
-   contador_fib: inteiro
+   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
 
+   // Sequência de triangulos perfeitos
+   n, i, m, indice, soma, proximo: inteiro
+   termos: vetor[1..51] de inteiro
+   continuar: caractere
+   pertence: logico
 Inicio
 
    enquanto (opcao <> 7) faca
@@ -40,7 +42,8 @@ Inicio
       escreval (" 04 - SequÃªncia Alternada")
       escreval (" 05 - SequÃªncia de Tribonacci")
       escreval (" 06 - SequÃªncia de Fibonacci")
-      escreval (" 07 - Sair")
+      escreval (" 09 - Sequência de triangulos perfeitos")
+      escreval (" 10 - Sair")
       escreval ("")
       escreval ("-----------------------------")
       leia (opcao)
@@ -209,12 +212,12 @@ Inicio
          //Sequencia de tribonacci
 
          escreva ("Digite o primeiro termo da sequÃªncia de Tribonacci: ")
-         leia (termo_tres_tri)
+         leia (termo_um_tri)
 
-         termo_um_tri <- 1
          termo_dois_tri <- 1
+         termo_tres_tri <- 1
 
-         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_tres_tri, ":")
+         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_um_tri, ":")
          escreval ("Termo 1: ", termo_um_tri)
          escreval ("Termo 2: ", termo_dois_tri)
          escreval ("Termo 3: ", termo_tres_tri)
@@ -234,19 +237,24 @@ Inicio
       caso 6
          // Sequencia de fibonacci
 
+         // Solicita o primeiro termo ao usuÃ¡rio
          escreva ("Digite o primeiro termo da sequÃªncia de Fibonacci: ")
-         leia (segundo_termo_fib)
+         leia (primeiro_termo_fib)
 
-         primeiro_termo_fib <- 1
+         // Define o segundo termo como 1 (padrÃ£o da sequÃªncia de Fibonacci)
+         segundo_termo_fib <- 1
 
-         escreval ("SequÃªncia de Fibonacci com primeiro termo ", segundo_termo_fib, ":")
-         escreval ("Termo  1:  ", primeiro_termo_fib)
-         escreval ("Termo  2:  ", segundo_termo_fib)
+         // Exibe o cabeÃ§alho
+         escreval ("SequÃªncia de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
+         escreval ("Termo 1:  ", primeiro_termo_fib)
+         escreval ("Termo 2:  ", segundo_termo_fib)
 
+         // Calcula e exibe os prÃ³ximos 50 termos (termos 3 a 52)
          para contador_fib de 3 ate 52 faca
             proximo_termo_fib <- primeiro_termo_fib + segundo_termo_fib
             escreval ("Termo ", contador_fib, ": ", proximo_termo_fib)
 
+            // Atualiza os valores para a prÃ³xima iteraÃ§Ã£o
             primeiro_termo_fib <- segundo_termo_fib
             segundo_termo_fib <- proximo_termo_fib
          fimpara
@@ -255,7 +263,57 @@ Inicio
          escreval ("SequÃªncia de Fibonacci completa com 52 termos!")
          escreval ("")
 
-      caso 7
+      caso 9
+         // Sequência de triângulos perfeitos
+         repita
+            // Pede o número até ser válido
+            repita
+               escreva("Digite un valor entero positivo: ")
+               leia(n)
+               se n < 1 entao
+                  escreval("Valor inválido! Insira um valro inteiro e positivo.!")
+               fimse
+            ate n >= 1
+
+            // Verifica se n pertence à sequência triangular
+            pertence <- falso
+            i <- 1
+            enquanto (i * (i + 1)) div 2 <= n faca
+               se (i * (i + 1)) div 2 = n entao
+                  pertence <- verdadeiro
+               fimse
+               i <- i + 1
+            fimenquanto
+
+            // Calcula os 51 termos seguintes
+            para indice de 1 ate 51 faca
+               m <- n + indice - 1
+               termos[indice] <- (m * (m + 1)) div 2
+            fimpara
+
+            escreval("")
+
+            se pertence = verdadeiro entao
+               escreval("n = ", n, " pertenece a sequência de números triangulares.")
+            senao
+               proximo <- (i * (i + 1)) div 2
+               escreval("n = ", n, " não pertenece a sequência de números triangulares.")
+               escreval("O próximo termo da sequência é: ", proximo)
+            fimse
+
+            escreval("")
+            escreval("Os 50 termos seguintes são:")
+            para indice de 2 ate 51 faca
+               escreval("T_", n + indice - 1, " = ", termos[indice])
+            fimpara
+
+            escreval("")
+            escreva("Desea continuar a execução(S/N)? ")
+            leia(continuar)
+
+         ate (continuar = "N") ou (continuar = "n")
+
+      caso 10
 
       fimescolha
 
