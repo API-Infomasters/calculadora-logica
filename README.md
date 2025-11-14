@@ -46,11 +46,10 @@ O projeto oferece a demonstração e o cálculo das seguintes sequências (adici
 * Cálculo de **Sequência Geométrica**  a partir do N-ésimo termo.
 * Geração de **Sequência Alternada** a partir do primeiro termo, utilizando (+/-) fornecido pelo usuario.
 * Cálculo de **Sequência de Fibonacci** a partir do N-ésimo termo, apresentado os próximos 50 termos.
-* Cálculo de **Sequência de Triângulos Perfeitos** para ajudar no cálculo de áreas triângulares mostrando os 50 seguintes.
+* Cálculo de **Sequência de Tribonacci** a partir do N-ésimo termo, apresentando os próximos 50 termos. 
 * Cálculo de **Sequência Fatorial** para visualizar o fatorial do N-ésimo termo da sequência.
 * Cálculo de **Sequência de Quadrados Perfeitos** para ajudar no cálculo da área a partir do N-ésimo termo, mostrando os 50 termos seguintes.
-* Cálculo de **Sequência de Tribonacci** a partir do N-ésimo termo, apresentando os próximos 50 termos. 
-
+* Cálculo de **Sequência de Triângulos Perfeitos** para ajudar no cálculo de áreas triângulares mostrando os 50 seguintes.
 ---
 
 ## 2. ⚙️ Pré-requisitos

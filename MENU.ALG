@@ -25,11 +25,11 @@ Var
    // Sequencia de fibonacci
    primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
 
-   // Sequ�ncia de triangulos perfeitos
-   n, i, m, indice, soma, proximo: inteiro
+   // Sequencia de triangulos perfeitos
+   n: real
+   i, m, indice, m_base_calc: inteiro
    termos: vetor[1..51] de inteiro
    continuar: caractere
-   pertence: logico
 
 // Sequencia fatorial
    n_fat, i_fat, t_fat: inteiro
@@ -47,8 +47,7 @@ Inicio
       escreval (" 04 - Sequência Alternada")
       escreval (" 05 - Sequência de Tribonacci")
       escreval (" 06 - Sequência de Fibonacci")
-      escreval (" 07 - Sequência Fatorial")
-      escreval (" 09 - Sequ�ncia de triangulos perfeitos")
+      escreval (" 09 - Sequência de Triangulos Perfeitos")
       escreval (" 10 - Sair")
       escreval ("")
       escreval ("-----------------------------")
@@ -292,56 +291,49 @@ escreva ("Digite um número para ver a sua sequência fatorial: ")
 
          escreval (i_fat, "! = ", fatorial_fat)
       fimpara
+      
+        caso 9
 
-      caso 9
-         // Sequ�ncia de tri�ngulos perfeitos
-         repita
-            // Pede o n�mero at� ser v�lido
+         continuar <- "S"
+
+         enquanto (continuar = "S") ou (continuar = "s") faca
+
+            // Pede um n�mero at� ser v�lido
             repita
-               escreva("Digite un valor entero positivo: ")
+               escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
                leia(n)
-               se n < 1 entao
-                  escreval("Valor inv�lido! Insira um valro inteiro e positivo.!")
+
+               // Adiciona a valida��o: n deve ser positivo e igual � sua parte inteira
+               se (n < 1) ou (n <> int(n)) entao
+                  escreval("Valor inv�lido! Insira um n�mero inteiro positivo.")
                fimse
-            ate n >= 1
 
-            // Verifica se n pertence � sequ�ncia triangular
-            pertence <- falso
-            i <- 1
-            enquanto (i * (i + 1)) div 2 <= n faca
-               se (i * (i + 1)) div 2 = n entao
-                  pertence <- verdadeiro
-               fimse
-               i <- i + 1
-            fimenquanto
+            ate (n >= 1) e (n = int(n)) // Condi��o de sa�da: n � positivo e � inteiro
 
-            // Calcula os 51 termos seguintes
-            para indice de 1 ate 51 faca
-               m <- n + indice - 1
-               termos[indice] <- (m * (m + 1)) div 2
-            fimpara
+            // Converte n para inteiro para o resto do c�lculo
+            m_base_calc <- int(n)
 
+            // Calcula o n-�simo termo e os 50 seguintes
             escreval("")
 
-            se pertence = verdadeiro entao
-               escreval("n = ", n, " pertenece a sequ�ncia de n�meros triangulares.")
-            senao
-               proximo <- (i * (i + 1)) div 2
-               escreval("n = ", n, " n�o pertenece a sequ�ncia de n�meros triangulares.")
-               escreval("O pr�ximo termo da sequ�ncia �: ", proximo)
-            fimse
+            para indice de 0 ate 50 faca
+               m <- m_base_calc + indice
+               termos[indice + 1] <- (m * (m + 1)) div 2
+            fimpara
 
+            // Mostra o termo correspondente e os 50 seguintes
+            escreval("O ", m_base_calc, "� termo da sequ�ncia de tri�ngulos perfeitos �: ", termos[1])
             escreval("")
             escreval("Os 50 termos seguintes s�o:")
+
             para indice de 2 ate 51 faca
-               escreval("T_", n + indice - 1, " = ", termos[indice])
+               escreval("T -", m_base_calc + indice - 1, " = ", termos[indice])
             fimpara
 
             escreval("")
-            escreva("Desea continuar a execu��o(S/N)? ")
+            escreva("Deseja continuar a execu��o (S/N)? ")
             leia(continuar)
-
-         ate (continuar = "N") ou (continuar = "n")
+         fimenquanto
 
       caso 10
 
