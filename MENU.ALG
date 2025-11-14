@@ -31,9 +31,13 @@ Var
    termos: vetor[1..51] de inteiro
    continuar: caractere
 
+// Sequencia fatorial
+   n_fat, i_fat, t_fat: inteiro
+   fatorial_fat: real
+
 Inicio
 
-   enquanto (opcao <> 7) faca
+   enquanto (opcao <> 10) faca
 
       escreval ("------MENU CALCULADORA-------")
       escreval ("")
@@ -43,7 +47,7 @@ Inicio
       escreval (" 04 - SequÃªncia Alternada")
       escreval (" 05 - SequÃªncia de Tribonacci")
       escreval (" 06 - SequÃªncia de Fibonacci")
-      escreval (" 09 - Sequência de Triangulos Perfeitos")
+      escreval (" 09 - SequÃªncia de Triangulos Perfeitos")
       escreval (" 10 - Sair")
       escreval ("")
       escreval ("-----------------------------")
@@ -264,28 +268,52 @@ Inicio
          escreval ("SequÃªncia de Fibonacci completa com 52 termos!")
          escreval ("")
 
-      caso 9
+caso 7
+// Sequencia fatorial
+
+escreva ("Digite um nÃºmero para ver a sua sequÃªncia fatorial: ")
+      leia (n_fat)
+
+      enquanto n_fat < 0 faca
+         escreval("Erro: SÃ³ Ã© possivel calcular o fatorial de nÃºmeros positivos.")
+         leia (n_fat)
+      fimenquanto
+
+      escreval ("SequÃªncia Fatorial de 0! atÃ© ", n_fat, "! ")
+
+      para i_fat de 0 ate n_fat faca
+
+         fatorial_fat <- 1
+
+         para t_fat de 1 ate i_fat faca
+            fatorial_fat <- fatorial_fat * t_fat
+         fimpara
+
+         escreval (i_fat, "! = ", fatorial_fat)
+      fimpara
+      
+        caso 9
 
          continuar <- "S"
 
          enquanto (continuar = "S") ou (continuar = "s") faca
 
-            // Pede um número até ser válido
+            // Pede um nï¿½mero atï¿½ ser vï¿½lido
             repita
                escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
                leia(n)
 
-               // Adiciona a validação: n deve ser positivo e igual à sua parte inteira
+               // Adiciona a validaï¿½ï¿½o: n deve ser positivo e igual ï¿½ sua parte inteira
                se (n < 1) ou (n <> int(n)) entao
-                  escreval("Valor inválido! Insira um número inteiro positivo.")
+                  escreval("Valor invï¿½lido! Insira um nï¿½mero inteiro positivo.")
                fimse
 
-            ate (n >= 1) e (n = int(n)) // Condição de saída: n é positivo e é inteiro
+            ate (n >= 1) e (n = int(n)) // Condiï¿½ï¿½o de saï¿½da: n ï¿½ positivo e ï¿½ inteiro
 
-            // Converte n para inteiro para o resto do cálculo
+            // Converte n para inteiro para o resto do cï¿½lculo
             m_base_calc <- int(n)
 
-            // Calcula o n-ésimo termo e os 50 seguintes
+            // Calcula o n-ï¿½simo termo e os 50 seguintes
             escreval("")
 
             para indice de 0 ate 50 faca
@@ -294,16 +322,16 @@ Inicio
             fimpara
 
             // Mostra o termo correspondente e os 50 seguintes
-            escreval("O ", m_base_calc, "º termo da sequência de triângulos perfeitos é: ", termos[1])
+            escreval("O ", m_base_calc, "ï¿½ termo da sequï¿½ncia de triï¿½ngulos perfeitos ï¿½: ", termos[1])
             escreval("")
-            escreval("Os 50 termos seguintes são:")
+            escreval("Os 50 termos seguintes sï¿½o:")
 
             para indice de 2 ate 51 faca
                escreval("T -", m_base_calc + indice - 1, " = ", termos[indice])
             fimpara
 
             escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
+            escreva("Deseja continuar a execuï¿½ï¿½o (S/N)? ")
             leia(continuar)
          fimenquanto
 
