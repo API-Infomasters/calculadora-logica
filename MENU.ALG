@@ -25,6 +25,12 @@ Var
    // Sequencia de fibonacci
    primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
 
+   // Sequencia de triangulos perfeitos
+   n: real
+   i, m, indice, m_base_calc: inteiro
+   termos: vetor[1..51] de inteiro
+   continuar: caractere
+
 Inicio
 
    enquanto (opcao <> 7) faca
@@ -37,7 +43,8 @@ Inicio
       escreval (" 04 - SequÃªncia Alternada")
       escreval (" 05 - SequÃªncia de Tribonacci")
       escreval (" 06 - SequÃªncia de Fibonacci")
-      escreval (" 07 - Sair")
+      escreval (" 09 - Sequência de Triangulos Perfeitos")
+      escreval (" 10 - Sair")
       escreval ("")
       escreval ("-----------------------------")
       leia (opcao)
@@ -257,7 +264,50 @@ Inicio
          escreval ("SequÃªncia de Fibonacci completa com 52 termos!")
          escreval ("")
 
-      caso 7
+      caso 9
+
+         continuar <- "S"
+
+         enquanto (continuar = "S") ou (continuar = "s") faca
+
+            // Pede um número até ser válido
+            repita
+               escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
+               leia(n)
+
+               // Adiciona a validação: n deve ser positivo e igual à sua parte inteira
+               se (n < 1) ou (n <> int(n)) entao
+                  escreval("Valor inválido! Insira um número inteiro positivo.")
+               fimse
+
+            ate (n >= 1) e (n = int(n)) // Condição de saída: n é positivo e é inteiro
+
+            // Converte n para inteiro para o resto do cálculo
+            m_base_calc <- int(n)
+
+            // Calcula o n-ésimo termo e os 50 seguintes
+            escreval("")
+
+            para indice de 0 ate 50 faca
+               m <- m_base_calc + indice
+               termos[indice + 1] <- (m * (m + 1)) div 2
+            fimpara
+
+            // Mostra o termo correspondente e os 50 seguintes
+            escreval("O ", m_base_calc, "º termo da sequência de triângulos perfeitos é: ", termos[1])
+            escreval("")
+            escreval("Os 50 termos seguintes são:")
+
+            para indice de 2 ate 51 faca
+               escreval("T -", m_base_calc + indice - 1, " = ", termos[indice])
+            fimpara
+
+            escreval("")
+            escreva("Deseja continuar a execução (S/N)? ")
+            leia(continuar)
+         fimenquanto
+
+      caso 10
 
       fimescolha
 
