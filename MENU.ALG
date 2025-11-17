@@ -5,35 +5,22 @@ Var
    // Variaveis globais
    opcao: inteiro
 
-   // Numeros primos
-   n_pri, contador_pri, numero_pri, i_pri, qtd_divisores_pri, primo_pri : inteiro
-
-   // Cubos perfeitos
-   termo_cub, i_cub: inteiro
-   valor_cub: real
-
+   // Variaveis reutilizáveis para todas as sequências
+   n: real
+   i, j, contador, qtd_divisores, numero: inteiro
+   termo1, termo2, termo3, termo_seguinte, resultado: real
+   
    // Progressao geometrica
-   iterador_geo, primeiro_termo_geo, numero_termos_geo, razao_geo, enesimo_termo_geo: inteiro
+   razao_geo: inteiro
 
    // Sequencia alternada
-   qtd_termos_alt, i_alt, razao_alt, opcao_alt: inteiro
-   alt_sinal_alt, termo_alt: real
-
-   // Sequencia de tribonacci
-   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
-
-   // Sequencia de fibonacci
-   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
+   qtd_termos_alt, razao_alt, opcao_alt: inteiro
+   alt_sinal_alt: real
 
    // Sequencia de triangulos perfeitos
-   n: real
-   i, m, indice, m_base_calc: inteiro
+   m, m_base_calc: inteiro
    termos: vetor[1..51] de inteiro
    continuar: caractere
-
-// Sequencia fatorial
-   n_fat, i_fat, t_fat: inteiro
-   fatorial_fat: real
 
 Inicio
 
@@ -47,6 +34,7 @@ Inicio
       escreval (" 04 - Sequência Alternada")
       escreval (" 05 - Sequência de Tribonacci")
       escreval (" 06 - Sequência de Fibonacci")
+      escreval (" 07 - Sequência Fatorial")
       escreval (" 09 - Sequência de Triangulos Perfeitos")
       escreval (" 10 - Sair")
       escreval ("")
@@ -60,76 +48,76 @@ Inicio
          // Sequencia de numeros primos
 
          escreva ("Digite o valor de n (posição do número primo): ")
-         leia (n_pri)
+         leia (n)
          escreval ("")
 
-         contador_pri <- 0
-         numero_pri <- 1
+         contador <- 0
+         numero <- 1
 
-         enquanto contador_pri < n_pri faca
-            numero_pri <- numero_pri + 1
-            qtd_divisores_pri <- 0
+         enquanto contador < n faca
+            numero <- numero + 1
+            qtd_divisores <- 0
 
 
-            para i_pri de 1 ate numero_pri faca
-               se numero_pri % i_pri = 0 entao
-                  qtd_divisores_pri <- qtd_divisores_pri + 1
+            para i de 1 ate numero faca
+               se numero % i = 0 entao
+                  qtd_divisores <- qtd_divisores + 1
                fimse
             fimpara
 
-            se qtd_divisores_pri = 2 entao
-               contador_pri <- contador_pri + 1
-               primo_pri <- numero_pri
+            se qtd_divisores = 2 entao
+               contador <- contador + 1
+               termo1 <- numero
             fimse
 
          fimenquanto
 
-         escreval("O ", n_pri, "º número primo é:", primo_pri)
+         escreval("O ", n, "º número primo é:", termo1)
          escreval ("")
 
       caso 2
          // Sequencia de cubos perfeitos
 
          escreva ("Digite um termo da sequência de cubos perfeitoss:")
-         leia (termo_cub)
+         leia (termo1)
          escreval ("")
-         escreval ("Seu valor correspondente na sequência é:", termo_cub ^ 3)
+         escreval ("Seu valor correspondente na sequência é:", termo1 ^ 3)
 
-         para i_cub de 1 ate 50 faca
+         para i de 1 ate 50 faca
 
-            valor_cub <- (termo_cub + i_cub) ^ 3
-            escreval ("O termo", i_cub + termo_cub, " da sequência é:", valor_cub)
+            resultado <- (termo1 + i) ^ 3
+            escreval ("O termo", i + termo1, " da sequência é:", resultado)
 
          fimpara
 
          escreval ("")
-         escreval ("Sequência completa com", i_cub, " termos!")
+         escreval ("Sequência completa com", i, " termos!")
          escreval ("")
 
       caso 3
          // Progressao geometrica
 
          escreva ("Digite o valor do primeiro termo:")
-         leia (primeiro_termo_geo)
+         leia (termo1)
          escreval ("")
 
          escreva ("Digite o número de termos da progressão:")
-         leia (numero_termos_geo)
+         leia (numero)
          escreval ("")
 
          escreva ("Digite o valor da razão:")
          leia (razao_geo)
          escreval ("")
 
-         enesimo_termo_geo <- primeiro_termo_geo
+         resultado <- termo1
 
-         para iterador_geo de 1 ate numero_termos_geo faca
-            escreval("Termo ", iterador_geo, " = ", enesimo_termo_geo)
-            enesimo_termo_geo <- enesimo_termo_geo * razao_geo
+         para i de 1 ate numero faca
+            escreval("Termo ", i, " = ", resultado)
+            resultado <- resultado * razao_geo
          fimpara
 
          escreval ("")
-         escreval ("Progressão geométrica completa com", numero_termos_geo, " termos!")
+         escreval ("Progressão geométrica completa com", numero, " termos!")
          escreval ("")
 
       caso 4
@@ -139,12 +127,12 @@ Inicio
          escreval ("")
 
          escreva ("Insira o valor do primeiro termo da sequência: ")
-         leia (termo_alt)
+         leia (termo1)
          escreval ("")
 
-         enquanto (termo_alt < 1) faca
+         enquanto (termo1 < 1) faca
             escreva ("Valor inválido, digite novamente:")
-            leia (termo_alt)
+            leia (termo1)
             escreval ("")
          fimenquanto
 
@@ -192,20 +180,20 @@ Inicio
 
          caso 1
             alt_sinal_alt <- 1
-            termo_alt <- termo_alt * alt_sinal_alt
+            termo1 <- termo1 * alt_sinal_alt
 
          caso 2
             alt_sinal_alt <- -1
-            termo_alt <- termo_alt * alt_sinal_alt
+            termo1 <- termo1 * alt_sinal_alt
 
          fimescolha
 
-         escreval ("O termo 1 da sequência é:", termo_alt)
+         escreval ("O termo 1 da sequência é:", termo1)
 
-         para i_alt de 1 ate qtd_termos_alt faca
+         para i de 1 ate qtd_termos_alt faca
 
-            termo_alt <- (termo_alt * razao_alt)
-            escreval ("O termo", i_alt + 1, " da sequência é:", termo_alt)
+            termo1 <- (termo1 * razao_alt)
+            escreval ("O termo", i + 1, " da sequência é:", termo1)
 
          fimpara
 
@@ -217,23 +205,23 @@ Inicio
          //Sequencia de tribonacci
 
          escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
-         leia (termo_um_tri)
+         leia (termo1)
 
-         termo_dois_tri <- 1
-         termo_tres_tri <- 1
+         termo2 <- 1
+         termo3 <- 1
 
-         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_um_tri, ":")
-         escreval ("Termo 1: ", termo_um_tri)
-         escreval ("Termo 2: ", termo_dois_tri)
-         escreval ("Termo 3: ", termo_tres_tri)
+         escreval ("Sequencia de Tribonacci com primeiro termo ", termo1, ":")
+         escreval ("Termo 1: ", termo1)
+         escreval ("Termo 2: ", termo2)
+         escreval ("Termo 3: ", termo3)
 
-         para contador_tri de 4 ate 52 faca
-            termo_seguinte_tri <- termo_um_tri + termo_dois_tri + termo_tres_tri
-            escreval ("Termo", contador_tri, ": ", termo_seguinte_tri)
+         para contador de 4 ate 52 faca
+            termo_seguinte <- termo1 + termo2 + termo3
+            escreval ("Termo", contador, ": ", termo_seguinte)
 
-            termo_um_tri <- termo_dois_tri
-            termo_dois_tri <- termo_tres_tri
-            termo_tres_tri <- termo_seguinte_tri
+            termo1 <- termo2
+            termo2 <- termo3
+            termo3 <- termo_seguinte
          fimpara
 
          escreval ("")
@@ -244,55 +232,55 @@ Inicio
 
          // Solicita o primeiro termo ao usuário
          escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
-         leia (primeiro_termo_fib)
+         leia (termo1)
 
          // Define o segundo termo como 1 (padrão da sequência de Fibonacci)
-         segundo_termo_fib <- 1
+         termo2 <- 1
 
          // Exibe o cabeçalho
-         escreval ("Sequência de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
-         escreval ("Termo 1:  ", primeiro_termo_fib)
-         escreval ("Termo 2:  ", segundo_termo_fib)
+         escreval ("Sequência de Fibonacci com primeiro termo ", termo1, ":")
+         escreval ("Termo 1:  ", termo1)
+         escreval ("Termo 2:  ", termo2)
 
          // Calcula e exibe os próximos 50 termos (termos 3 a 52)
-         para contador_fib de 3 ate 52 faca
-            proximo_termo_fib <- primeiro_termo_fib + segundo_termo_fib
-            escreval ("Termo ", contador_fib, ": ", proximo_termo_fib)
+         para contador de 3 ate 52 faca
+            termo_seguinte <- termo1 + termo2
+            escreval ("Termo ", contador, ": ", termo_seguinte)
 
             // Atualiza os valores para a próxima iteração
-            primeiro_termo_fib <- segundo_termo_fib
-            segundo_termo_fib <- proximo_termo_fib
+            termo1 <- termo2
+            termo2 <- termo_seguinte
          fimpara
 
          escreval ("")
          escreval ("Sequência de Fibonacci completa com 52 termos!")
          escreval ("")
 
-caso 7
-// Sequencia fatorial
+      caso 7
+         // Sequencia fatorial
 
-escreva ("Digite um número para ver a sua sequência fatorial: ")
-      leia (n_fat)
+         escreva ("Digite um número para ver a sua sequência fatorial: ")
+         leia (n)
 
-      enquanto n_fat < 0 faca
-         escreval("Erro: Só é possivel calcular o fatorial de números positivos.")
-         leia (n_fat)
-      fimenquanto
+         enquanto n < 0 faca
+            escreval("Erro: Só é possivel calcular o fatorial de números positivos.")
+            leia (n)
+         fimenquanto
 
-      escreval ("Sequência Fatorial de 0! até ", n_fat, "! ")
+         escreval ("Sequência Fatorial de 0! até ", n, "! ")
 
-      para i_fat de 0 ate n_fat faca
+         para i de 0 ate n faca
 
-         fatorial_fat <- 1
+            resultado <- 1
 
-         para t_fat de 1 ate i_fat faca
-            fatorial_fat <- fatorial_fat * t_fat
+            para j de 1 ate i faca
+               resultado <- resultado * j
+            fimpara
+
+            escreval (i, "! = ", resultado)
          fimpara
 
-         escreval (i_fat, "! = ", fatorial_fat)
-      fimpara
-      
-        caso 9
+      caso 9
 
          continuar <- "S"
 
@@ -316,9 +304,9 @@ escreva ("Digite um número para ver a sua sequência fatorial: ")
             // Calcula o n-�simo termo e os 50 seguintes
             escreval("")
 
-            para indice de 0 ate 50 faca
-               m <- m_base_calc + indice
-               termos[indice + 1] <- (m * (m + 1)) div 2
+            para i de 0 ate 50 faca
+               m <- m_base_calc + i
+               termos[i + 1] <- (m * (m + 1)) div 2
             fimpara
 
             // Mostra o termo correspondente e os 50 seguintes
@@ -326,8 +314,8 @@ escreva ("Digite um número para ver a sua sequência fatorial: ")
             escreval("")
             escreval("Os 50 termos seguintes s�o:")
 
-            para indice de 2 ate 51 faca
-               escreval("T -", m_base_calc + indice - 1, " = ", termos[indice])
+            para i de 2 ate 51 faca
+               escreval("T -", m_base_calc + i - 1, " = ", termos[i])
             fimpara
 
             escreval("")
