@@ -22,6 +22,11 @@ Var
    termos: vetor[1..51] de inteiro
    continuar: caractere
 
+   // Sequencia de quadrados perfeitos
+
+    n, i: inteiro
+    termoN: inteiro
+
 Inicio
 
    enquanto (opcao <> 10) faca
@@ -36,7 +41,8 @@ Inicio
       escreval (" 06 - Sequência de Fibonacci")
       escreval (" 07 - Sequência Fatorial")
       escreval (" 09 - Sequência de Triangulos Perfeitos")
-      escreval (" 10 - Sair")
+      escreval(" 10 - Sequência de quadrados perfeitos")
+      escreval (" 11 - Sair")
       escreval ("")
       escreval ("-----------------------------")
       leia (opcao)
@@ -286,22 +292,22 @@ Inicio
 
          enquanto (continuar = "S") ou (continuar = "s") faca
 
-            // Pede um n�mero at� ser v�lido
+            // Pede um n mero at  ser v lido
             repita
                escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
                leia(n)
 
-               // Adiciona a valida��o: n deve ser positivo e igual � sua parte inteira
+               // Adiciona a valida  o: n deve ser positivo e igual   sua parte inteira
                se (n < 1) ou (n <> int(n)) entao
-                  escreval("Valor inv�lido! Insira um n�mero inteiro positivo.")
+                  escreval("Valor inv lido! Insira um n mero inteiro positivo.")
                fimse
 
-            ate (n >= 1) e (n = int(n)) // Condi��o de sa�da: n � positivo e � inteiro
+            ate (n >= 1) e (n = int(n)) // Condi  o de sa da: n   positivo e   inteiro
 
-            // Converte n para inteiro para o resto do c�lculo
+            // Converte n para inteiro para o resto do c lculo
             m_base_calc <- int(n)
 
-            // Calcula o n-�simo termo e os 50 seguintes
+            // Calcula o n- simo termo e os 50 seguintes
             escreval("")
 
             para i de 0 ate 50 faca
@@ -310,20 +316,44 @@ Inicio
             fimpara
 
             // Mostra o termo correspondente e os 50 seguintes
-            escreval("O ", m_base_calc, "� termo da sequ�ncia de tri�ngulos perfeitos �: ", termos[1])
+            escreval("O ", m_base_calc, "  termo da sequ ncia de tri ngulos perfeitos  : ", termos[1])
             escreval("")
-            escreval("Os 50 termos seguintes s�o:")
+            escreval("Os 50 termos seguintes s o:")
 
             para i de 2 ate 51 faca
                escreval("T -", m_base_calc + i - 1, " = ", termos[i])
             fimpara
 
             escreval("")
-            escreva("Deseja continuar a execu��o (S/N)? ")
+            escreva("Deseja continuar a execu  o (S/N)? ")
             leia(continuar)
          fimenquanto
+	
+	caso 10
 
-      caso 10
+	// Entrada
+    	escreva("Digite o valor de n (inteiro positivo): ")
+    	leia(n)
+
+ 	// validação simples
+    	se n <= 0 entao
+        	escreval("Valor inválido. n deve ser inteiro positivo.")
+        	pare
+    	fimse
+
+ 	// calcula o enésimo termo (quadrado perfeito)
+    	termoN := n * n
+    	escreval()
+    	escreval("Enésimo termo: (n = ", n, ") -> ", termoN)
+    	escreval()
+
+ 	// mostra os próximos 50 termos da sequência de quadrados perfeitos
+    	escreval("Próximos 50 termos (índice -> valor):")
+    	para i := n + 1 ate n + 50 faca
+        	escreval(i, " -> ", i * i)
+    	fimpara
+
+      caso 11
 
       fimescolha
 
