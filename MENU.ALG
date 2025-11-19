@@ -14,7 +14,7 @@ Var
    razao_geo: inteiro
 
    // Sequencia alternada
-   qtd_termos_alt, razao_alt, opcao_alt: inteiro
+   qtd_termos_alt, razao_alt: inteiro
    alt_sinal_alt: real
 
    // Sequencia de triangulos perfeitos
@@ -23,7 +23,6 @@ Var
    continuar: caractere
 
    // Sequencia de quadrados perfeitos
-
    termoK, K: inteiro
 
 Inicio
@@ -52,6 +51,7 @@ Inicio
 
       caso 1
          // Sequencia de numeros primos
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             escreva ("Digite o valor de n (posição do número primo): ")
@@ -82,14 +82,16 @@ Inicio
             escreval("O ", n, "º número primo é:", termo1)
             escreval ("")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 2
          // Sequencia de cubos perfeitos
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             escreva ("Digite um termo da sequência de cubos perfeitos:")
@@ -105,17 +107,18 @@ Inicio
             fimpara
 
             escreval ("")
-            escreval ("Sequência completa com", i, " termos!")
+            escreval ("Sequência completa com", i + 1, " termos!")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
             escreval ("")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
          fimenquanto
 
       caso 3
          // Progressao geometrica
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             escreva ("Digite o valor do primeiro termo:")
@@ -139,16 +142,17 @@ Inicio
 
             escreval ("")
             escreval ("Progressão geométrica completa com", numero, " termos!")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
             escreval ("")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
          fimenquanto
 
       caso 4
          // Sequencia alternada
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             escreval ("Bem vindo a função de sequência alternada.")
@@ -159,7 +163,7 @@ Inicio
             escreval ("")
 
             enquanto (termo1 < 1) faca
-               escreva ("Valor inválido, digite novamente:")
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
                leia (termo1)
                escreval ("")
             fimenquanto
@@ -169,7 +173,7 @@ Inicio
             escreval ("")
 
             enquanto (razao_alt <= 1) faca
-               escreva ("Valor inválido, digite novamente:")
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
                leia (razao_alt)
                escreval ("")
             fimenquanto
@@ -182,39 +186,27 @@ Inicio
 
             enquanto (qtd_termos_alt <= 0) faca
 
-               escreval ("Número inválido, digite novamente.")
+               escreva ("Número inválido, digite um número inteiro e positivo: ")
                leia (qtd_termos_alt)
                escreval ("")
 
             fimenquanto
 
-            escreval ("Qual termo você deseja que seja positivo?")
+            escreva ("Você deseja que o primeiro termo seja positivo? (S/N) ")
+            leia (continuar)
             escreval ("")
 
-            escreval ("Para o primeiro termo, digite 1.")
-            escreval ("Para o segundo termo, digite 2.")
-            escreval ("")
+            se (continuar = "S") ou (continuar = "s") entao
 
-            leia (opcao_alt)
-            escreval ("")
-
-            enquanto (opcao_alt < 1) ou (opcao_alt > 2) faca
-               escreva ("Valor inválido, digite novamente:")
-               leia (opcao_alt)
-               escreval ("")
-            fimenquanto
-
-            escolha (opcao_alt)
-
-            caso 1
                alt_sinal_alt <- 1
                termo1 <- termo1 * alt_sinal_alt
 
-            caso 2
+            senao
+
                alt_sinal_alt <- -1
                termo1 <- termo1 * alt_sinal_alt
 
-            fimescolha
+            fimse
 
             escreval ("O termo 1 da sequência é:", termo1)
 
@@ -229,14 +221,16 @@ Inicio
             escreval ("Sequência alternada completa com", qtd_termos_alt + 1, " termos!")
             escreval ("")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 5
          //Sequencia de tribonacci
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
@@ -262,17 +256,17 @@ Inicio
             escreval ("")
             escreval ("Sequência de Tribonacci completa com 52 termos!")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 6
+         // Sequencia de fibonacci
 
          enquanto (continuar = "S") ou (continuar = "s") faca
-
-            // Sequencia de fibonacci
 
             // Solicita o primeiro termo ao usuário
             escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
@@ -300,10 +294,11 @@ Inicio
             escreval ("Sequência de Fibonacci completa com 52 termos!")
             escreval ("")
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 7
@@ -332,23 +327,24 @@ Inicio
                escreval (i, "! = ", resultado)
             fimpara
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 8
-         // Triangulos Perfeitos
+         // Triangulos perfeitos
 
          enquanto (continuar = "S") ou (continuar = "s") faca
 
-            // Pede um n mero at  ser v lido
+            // Pede um numero ate ser valido
             repita
                escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
                leia(n)
 
-               // Adiciona a valida  o: n deve ser positivo e igual   sua parte inteira
+               // Adiciona a validacao: n deve ser positivo e igual a sua parte inteira
                se (n < 1) ou (n <> int(n)) entao
                   escreval("Valor inválido! Insira um número inteiro positivo.")
                fimse
@@ -375,15 +371,16 @@ Inicio
                escreval("T -", m_base_calc + i - 1, " = ", termos[i])
             fimpara
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
 
          fimenquanto
 
       caso 9
-         // Quadrados Perfeitos
+         // Quadrados perfeitos
+
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             // Entrada
@@ -408,16 +405,13 @@ Inicio
                escreval(i, " -> ", i * i)
             fimpara
 
-            escreval("")
-            escreva("Deseja continuar a execução (S/N)? ")
-            leia(continuar)
-            escreval("")
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
 
       caso 10
 
       fimescolha
-
-   fimenquanto
-
-Fimalgoritmo
