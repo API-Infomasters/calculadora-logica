@@ -6,16 +6,8 @@ Var
    opcao: inteiro
 
    // Variaveis reutilizáveis para todas as sequências
-   n: real
-   i, j, contador, qtd_divisores, numero: inteiro
-   termo1, termo2, termo3, termo_seguinte, resultado: real
-
-   // Progressao geometrica
-   razao_geo: inteiro
-
-   // Sequencia alternada
-   qtd_termos_alt, razao_alt: inteiro
-   alt_sinal_alt: real
+   i, j, contador, qtd_divisores, numero, razao: inteiro
+   termo1, termo2, termo3, termo_seguinte, resultado, n: real
 
    // Sequencia de triangulos perfeitos
    m, m_base_calc: inteiro
@@ -58,6 +50,12 @@ Inicio
             leia (n)
             escreval ("")
 
+            enquanto (n < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (n)
+               escreval ("")
+            fimenquanto
+
             contador <- 0
             numero <- 1
 
@@ -94,9 +92,17 @@ Inicio
 
          enquanto (continuar = "S") ou (continuar = "s") faca
 
-            escreva ("Digite um termo da sequência de cubos perfeitos:")
+            escreva ("Digite um termo da sequência de cubos perfeitos: ")
             leia (termo1)
             escreval ("")
+
+            enquanto (termo1 < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (termo1)
+               escreval ("")
+            fimenquanto
+
+
             escreval ("Seu valor correspondente na sequência é:", termo1 ^ 3)
 
             para i de 1 ate 50 faca
@@ -121,23 +127,41 @@ Inicio
 
          enquanto (continuar = "S") ou (continuar = "s") faca
 
-            escreva ("Digite o valor do primeiro termo:")
+            escreva ("Digite o valor do primeiro termo: ")
             leia (termo1)
             escreval ("")
 
-            escreva ("Digite o número de termos da progressão:")
+            enquanto (termo1 < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (termo1)
+               escreval ("")
+            fimenquanto
+
+            escreva ("Digite o número de termos da progressão: ")
             leia (numero)
             escreval ("")
 
-            escreva ("Digite o valor da razão:")
-            leia (razao_geo)
+            enquanto (numero < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (numero)
+               escreval ("")
+            fimenquanto
+
+            escreva ("Digite o valor da razão: ")
+            leia (razao)
             escreval ("")
+
+            enquanto (razao < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (razao)
+               escreval ("")
+            fimenquanto
 
             resultado <- termo1
 
             para i de 1 ate numero faca
                escreval("Termo ", i, " = ", resultado)
-               resultado <- resultado * razao_geo
+               resultado <- resultado * razao
             fimpara
 
             escreval ("")
@@ -169,25 +193,25 @@ Inicio
             fimenquanto
 
             escreva ("Insira também a razão da sequência: ")
-            leia (razao_alt)
+            leia (razao)
             escreval ("")
 
-            enquanto (razao_alt <= 1) faca
+            enquanto (razao <= 1) faca
                escreva ("Valor inválido, digite um número inteiro e positivo: ")
-               leia (razao_alt)
+               leia (razao)
                escreval ("")
             fimenquanto
 
-            razao_alt <- razao_alt * -1
+            razao <- razao * -1
 
             escreva ("Por último, insira a quantidade de termos da sequência: ")
-            leia(qtd_termos_alt)
+            leia (numero)
             escreval ("")
 
-            enquanto (qtd_termos_alt <= 0) faca
+            enquanto (numero <= 0) faca
 
                escreva ("Número inválido, digite um número inteiro e positivo: ")
-               leia (qtd_termos_alt)
+               leia (numero)
                escreval ("")
 
             fimenquanto
@@ -198,27 +222,28 @@ Inicio
 
             se (continuar = "S") ou (continuar = "s") entao
 
-               alt_sinal_alt <- 1
-               termo1 <- termo1 * alt_sinal_alt
+               // Altera o sinal do primeiro termo
+               n <- 1
+               termo1 <- termo1 * n
 
             senao
 
                alt_sinal_alt <- -1
-               termo1 <- termo1 * alt_sinal_alt
+               termo1 <- termo1 * n
 
             fimse
 
             escreval ("O termo 1 da sequência é:", termo1)
 
-            para i de 1 ate qtd_termos_alt faca
+            para i de 1 ate numero faca
 
-               termo1 <- (termo1 * razao_alt)
+               termo1 <- (termo1 * razao)
                escreval ("O termo", i + 1, " da sequência é:", termo1)
 
             fimpara
 
             escreval ("")
-            escreval ("Sequência alternada completa com", qtd_termos_alt + 1, " termos!")
+            escreval ("Sequência alternada completa com", numero + 1, " termos!")
             escreval ("")
 
             escreval ("")
@@ -235,6 +260,7 @@ Inicio
 
             escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
             leia (termo3)
+            escreval ("")
 
             termo1 <- 1
             termo2 <- 1
@@ -308,10 +334,12 @@ Inicio
 
             escreva ("Digite um número para ver a sua sequência fatorial: ")
             leia (k)
+            escreval ("")
 
             enquanto k < 0 faca
                escreval("Erro: Só é possivel calcular o fatorial de números positivos.")
                leia (k)
+               escreval ("")
             fimenquanto
 
             escreval ("Sequência Fatorial de 0! até ", k, "! ")
@@ -384,25 +412,27 @@ Inicio
          enquanto (continuar = "S") ou (continuar = "s") faca
 
             // Entrada
-            escreva("Digite o valor de n (inteiro positivo): ")
-            leia(K)
+            escreva ("Digite o valor de n (inteiro positivo): ")
+            leia (K)
 
             // validação simples
-            se K <= 0 entao
-               escreval("Valor inválido. n deve ser inteiro positivo.")
-
-            fimse
+            enquanto (K < 1) faca
+               escreval ("")
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (K)
+            fimenquanto
 
             // calcula o enésimo termo (quadrado perfeito)
             termoK := K * K
-            escreval()
-            escreval("Enésimo termo: (n = ", K, ") -> ", termoK)
-            escreval()
+            escreval ("")
+            escreval ("Enésimo termo: (n = ", K, ") -> ", termoK)
+            escreval ("")
 
             // mostra os próximos 50 termos da sequência de quadrados perfeitos
-            escreval("Próximos 50 termos (índice -> valor):")
+            escreval ("Próximos 50 termos (índice -> valor):")
+            escreval ("")
             para i := K + 1 ate K + 50 faca
-               escreval(i, " -> ", i * i)
+               escreval (i, " -> ", i * i)
             fimpara
 
             escreval ("")
@@ -415,3 +445,7 @@ Inicio
       caso 10
 
       fimescolha
+
+   fimenquanto
+
+Fimalgoritmo
