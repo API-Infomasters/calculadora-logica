@@ -228,7 +228,7 @@ Inicio
 
             senao
 
-               alt_sinal_alt <- -1
+               n <- -1
                termo1 <- termo1 * n
 
             fimse
@@ -244,7 +244,6 @@ Inicio
 
             escreval ("")
             escreval ("Sequência alternada completa com", numero + 1, " termos!")
-            escreval ("")
 
             escreval ("")
             escreva ("Deseja continuar a execução? (S/N) ")
@@ -342,7 +341,7 @@ Inicio
                escreval ("")
             fimenquanto
 
-            escreval ("Sequência Fatorial de 0! até ", k, "! ")
+            escreval ("Sequência Fatorial de 0! até", k, "!")
 
             para i de 0 ate k faca
 
@@ -449,3 +448,4 @@ Inicio
    fimenquanto
 
 Fimalgoritmo
+
