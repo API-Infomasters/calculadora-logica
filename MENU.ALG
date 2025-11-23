@@ -5,31 +5,23 @@ Var
    // Variaveis globais
    opcao: inteiro
 
-   // Numeros primos
-   n_pri, contador_pri, numero_pri, i_pri, qtd_divisores_pri, primo_pri : inteiro
+   // Variaveis reutilizáveis para todas as sequências
+   i, j, contador, qtd_divisores, numero, razao: inteiro
+   termo1, termo2, termo3, termo_seguinte, resultado, n: real
 
-   // Cubos perfeitos
-   termo_cub, i_cub: inteiro
-   valor_cub: real
+   // Sequencia de triangulos perfeitos
+   m, m_base_calc: inteiro
+   termos: vetor[1..51] de inteiro
+   continuar: caractere
 
-   // Progressao geometrica
-   iterador_geo, primeiro_termo_geo, numero_termos_geo, razao_geo, enesimo_termo_geo: inteiro
-
-   // Sequencia alternada
-   qtd_termos_alt, i_alt, razao_alt, opcao_alt: inteiro
-   alt_sinal_alt, termo_alt: real
-
-   // Sequencia de tribonacci
-   termo_um_tri, termo_dois_tri, termo_tres_tri, termo_seguinte_tri, contador_tri: inteiro
-
-   // Sequencia de fibonacci
-   primeiro_termo_fib, segundo_termo_fib, proximo_termo_fib, contador_fib: inteiro
+   // Sequencia de quadrados perfeitos
+   termoK, K: inteiro
 
 Inicio
 
-   enquanto (opcao <> 7) faca
+   enquanto (opcao <> 10) faca
 
-      escreval ("------MENU CALCULADORA-------")
+      escreval ("----------CALCULADORA INFOMASTERS----------")
       escreval ("")
       escreval (" 01 - Numeros Primos ")
       escreval (" 02 - Sequência de Cubos Perfeitos ")
@@ -37,227 +29,420 @@ Inicio
       escreval (" 04 - Sequência Alternada")
       escreval (" 05 - Sequência de Tribonacci")
       escreval (" 06 - Sequência de Fibonacci")
-      escreval (" 07 - Sair")
+      escreval (" 07 - Sequência Fatorial")
+      escreval (" 08 - Sequência de Triangulos Perfeitos")
+      escreval (" 09 - Sequência de Quadrados Perfeitos")
+      escreval (" 10 - Sair")
       escreval ("")
-      escreval ("-----------------------------")
+      escreval ("-------------------------------------------")
       leia (opcao)
       limpatela
 
+      continuar <- "S"
       escolha (opcao)
 
       caso 1
          // Sequencia de numeros primos
 
-         escreva ("Digite o valor de n (posição do número primo): ")
-         leia (n_pri)
-         escreval ("")
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         contador_pri <- 0
-         numero_pri <- 1
+            escreva ("Digite o valor de n (posição do número primo): ")
+            leia (n)
+            escreval ("")
 
-         enquanto contador_pri < n_pri faca
-            numero_pri <- numero_pri + 1
-            qtd_divisores_pri <- 0
+            enquanto (n < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (n)
+               escreval ("")
+            fimenquanto
+
+            contador <- 0
+            numero <- 1
+
+            enquanto contador < n faca
+               numero <- numero + 1
+               qtd_divisores <- 0
 
 
-            para i_pri de 1 ate numero_pri faca
-               se numero_pri % i_pri = 0 entao
-                  qtd_divisores_pri <- qtd_divisores_pri + 1
+               para i de 1 ate numero faca
+                  se numero % i = 0 entao
+                     qtd_divisores <- qtd_divisores + 1
+                  fimse
+               fimpara
+
+               se qtd_divisores = 2 entao
+                  contador <- contador + 1
+                  termo1 <- numero
                fimse
-            fimpara
 
-            se qtd_divisores_pri = 2 entao
-               contador_pri <- contador_pri + 1
-               primo_pri <- numero_pri
-            fimse
+            fimenquanto
+
+            escreval("O ", n, "º número primo é:", termo1)
+            escreval ("")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
 
          fimenquanto
-
-         escreval("O ", n_pri, "º número primo é:", primo_pri)
-         escreval ("")
 
       caso 2
          // Sequencia de cubos perfeitos
 
-         escreva ("Digite um termo da sequência de cubos perfeitoss:")
-         leia (termo_cub)
-         escreval ("")
-         escreval ("Seu valor correspondente na sequência é:", termo_cub ^ 3)
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         para i_cub de 1 ate 50 faca
+            escreva ("Digite um termo da sequência de cubos perfeitos: ")
+            leia (termo1)
+            escreval ("")
 
-            valor_cub <- (termo_cub + i_cub) ^ 3
-            escreval ("O termo", i_cub + termo_cub, " da sequência é:", valor_cub)
+            enquanto (termo1 < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (termo1)
+               escreval ("")
+            fimenquanto
 
-         fimpara
 
-         escreval ("")
-         escreval ("Sequência completa com", i_cub, " termos!")
-         escreval ("")
+            escreval ("Seu valor correspondente na sequência é:", termo1 ^ 3)
+
+            para i de 1 ate 50 faca
+
+               resultado <- (termo1 + i) ^ 3
+               escreval ("O termo", i + termo1, " da sequência é:", resultado)
+
+            fimpara
+
+            escreval ("")
+            escreval ("Sequência completa com", i + 1, " termos!")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
 
       caso 3
          // Progressao geometrica
 
-         escreva ("Digite o valor do primeiro termo:")
-         leia (primeiro_termo_geo)
-         escreval ("")
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         escreva ("Digite o número de termos da progressão:")
-         leia (numero_termos_geo)
-         escreval ("")
+            escreva ("Digite o valor do primeiro termo: ")
+            leia (termo1)
+            escreval ("")
 
-         escreva ("Digite o valor da razão:")
-         leia (razao_geo)
-         escreval ("")
+            enquanto (termo1 < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (termo1)
+               escreval ("")
+            fimenquanto
 
-         enesimo_termo_geo <- primeiro_termo_geo
+            escreva ("Digite o número de termos da progressão: ")
+            leia (numero)
+            escreval ("")
 
-         para iterador_geo de 1 ate numero_termos_geo faca
-            escreval("Termo ", iterador_geo, " = ", enesimo_termo_geo)
-            enesimo_termo_geo <- enesimo_termo_geo * razao_geo
-         fimpara
+            enquanto (numero < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (numero)
+               escreval ("")
+            fimenquanto
 
-         escreval ("")
-         escreval ("Progressão geométrica completa com", numero_termos_geo, " termos!")
-         escreval ("")
+            escreva ("Digite o valor da razão: ")
+            leia (razao)
+            escreval ("")
+
+            enquanto (razao < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (razao)
+               escreval ("")
+            fimenquanto
+
+            resultado <- termo1
+
+            para i de 1 ate numero faca
+               escreval("Termo ", i, " = ", resultado)
+               resultado <- resultado * razao
+            fimpara
+
+            escreval ("")
+            escreval ("Progressão geométrica completa com", numero, " termos!")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
 
       caso 4
          // Sequencia alternada
 
-         escreval ("Bem vindo a função de sequência alternada.")
-         escreval ("")
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         escreva ("Insira o valor do primeiro termo da sequência: ")
-         leia (termo_alt)
-         escreval ("")
-
-         enquanto (termo_alt < 1) faca
-            escreva ("Valor inválido, digite novamente:")
-            leia (termo_alt)
-            escreval ("")
-         fimenquanto
-
-         escreva ("Insira também a razão da sequência: ")
-         leia (razao_alt)
-         escreval ("")
-
-         enquanto (razao_alt <= 1) faca
-            escreva ("Valor inválido, digite novamente:")
-            leia (razao_alt)
-            escreval ("")
-         fimenquanto
-
-         razao_alt <- razao_alt * -1
-
-         escreva ("Por último, insira a quantidade de termos da sequência: ")
-         leia(qtd_termos_alt)
-         escreval ("")
-
-         enquanto (qtd_termos_alt <= 0) faca
-
-            escreval ("Número inválido, digite novamente.")
-            leia (qtd_termos_alt)
+            escreval ("Bem vindo a função de sequência alternada.")
             escreval ("")
 
-         fimenquanto
-
-         escreval ("Qual termo você deseja que seja positivo?")
-         escreval ("")
-
-         escreval ("Para o primeiro termo, digite 1.")
-         escreval ("Para o segundo termo, digite 2.")
-         escreval ("")
-
-         leia (opcao_alt)
-         escreval ("")
-
-         enquanto (opcao_alt < 1) ou (opcao_alt > 2) faca
-            escreva ("Valor inválido, digite novamente:")
-            leia (opcao_alt)
+            escreva ("Insira o valor do primeiro termo da sequência: ")
+            leia (termo1)
             escreval ("")
+
+            enquanto (termo1 < 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (termo1)
+               escreval ("")
+            fimenquanto
+
+            escreva ("Insira também a razão da sequência: ")
+            leia (razao)
+            escreval ("")
+
+            enquanto (razao <= 1) faca
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (razao)
+               escreval ("")
+            fimenquanto
+
+            razao <- razao * -1
+
+            escreva ("Por último, insira a quantidade de termos da sequência: ")
+            leia (numero)
+            escreval ("")
+
+            enquanto (numero <= 0) faca
+
+               escreva ("Número inválido, digite um número inteiro e positivo: ")
+               leia (numero)
+               escreval ("")
+
+            fimenquanto
+
+            escreva ("Você deseja que o primeiro termo seja positivo? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+            se (continuar = "S") ou (continuar = "s") entao
+
+               // Altera o sinal do primeiro termo
+               n <- 1
+               termo1 <- termo1 * n
+
+            senao
+
+               alt_sinal_alt <- -1
+               termo1 <- termo1 * n
+
+            fimse
+
+            escreval ("O termo 1 da sequência é:", termo1)
+
+            para i de 1 ate numero faca
+
+               termo1 <- (termo1 * razao)
+               escreval ("O termo", i + 1, " da sequência é:", termo1)
+
+            fimpara
+
+            escreval ("")
+            escreval ("Sequência alternada completa com", numero + 1, " termos!")
+            escreval ("")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
          fimenquanto
-
-         escolha (opcao_alt)
-
-         caso 1
-            alt_sinal_alt <- 1
-            termo_alt <- termo_alt * alt_sinal_alt
-
-         caso 2
-            alt_sinal_alt <- -1
-            termo_alt <- termo_alt * alt_sinal_alt
-
-         fimescolha
-
-         escreval ("O termo 1 da sequência é:", termo_alt)
-
-         para i_alt de 1 ate qtd_termos_alt faca
-
-            termo_alt <- (termo_alt * razao_alt)
-            escreval ("O termo", i_alt + 1, " da sequência é:", termo_alt)
-
-         fimpara
-
-         escreval ("")
-         escreval ("Sequência alternada completa com", qtd_termos_alt + 1, " termos!")
-         escreval ("")
 
       caso 5
          //Sequencia de tribonacci
 
-         escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
-         leia (termo_um_tri)
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         termo_dois_tri <- 1
-         termo_tres_tri <- 1
+            escreva ("Digite o primeiro termo da sequência de Tribonacci: ")
+            leia (termo3)
+            escreval ("")
 
-         escreval ("Sequencia de Tribonacci com primeiro termo ", termo_um_tri, ":")
-         escreval ("Termo 1: ", termo_um_tri)
-         escreval ("Termo 2: ", termo_dois_tri)
-         escreval ("Termo 3: ", termo_tres_tri)
+            termo1 <- 1
+            termo2 <- 1
 
-         para contador_tri de 4 ate 52 faca
-            termo_seguinte_tri <- termo_um_tri + termo_dois_tri + termo_tres_tri
-            escreval ("Termo", contador_tri, ": ", termo_seguinte_tri)
+            escreval ("Sequencia de Tribonacci com primeiro termo ", termo1, ":")
+            escreval ("Termo 1: ", termo1)
+            escreval ("Termo 2: ", termo2)
+            escreval ("Termo 3: ", termo3)
 
-            termo_um_tri <- termo_dois_tri
-            termo_dois_tri <- termo_tres_tri
-            termo_tres_tri <- termo_seguinte_tri
-         fimpara
+            para contador de 4 ate 52 faca
+               termo_seguinte <- termo1 + termo2 + termo3
+               escreval ("Termo", contador, ": ", termo_seguinte)
 
-         escreval ("")
-         escreval ("Sequência de Tribonacci completa com 52 termos!")
+               termo1 <- termo2
+               termo2 <- termo3
+               termo3 <- termo_seguinte
+            fimpara
+
+            escreval ("")
+            escreval ("Sequência de Tribonacci completa com 52 termos!")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
 
       caso 6
          // Sequencia de fibonacci
 
-         // Solicita o primeiro termo ao usuário
-         escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
-         leia (primeiro_termo_fib)
+         enquanto (continuar = "S") ou (continuar = "s") faca
 
-         // Define o segundo termo como 1 (padrão da sequência de Fibonacci)
-         segundo_termo_fib <- 1
+            // Solicita o primeiro termo ao usuário
+            escreva ("Digite o primeiro termo da sequência de Fibonacci: ")
+            leia (termo2)
 
-         // Exibe o cabeçalho
-         escreval ("Sequência de Fibonacci com primeiro termo ", primeiro_termo_fib, ":")
-         escreval ("Termo 1:  ", primeiro_termo_fib)
-         escreval ("Termo 2:  ", segundo_termo_fib)
+            // Define o segundo termo como 1 (padrão da sequência de Fibonacci)
+            termo1 <- 1
 
-         // Calcula e exibe os próximos 50 termos (termos 3 a 52)
-         para contador_fib de 3 ate 52 faca
-            proximo_termo_fib <- primeiro_termo_fib + segundo_termo_fib
-            escreval ("Termo ", contador_fib, ": ", proximo_termo_fib)
+            // Exibe o cabeçalho
+            escreval ("Sequência de Fibonacci com primeiro termo ", termo1, ":")
+            escreval ("Termo 1:  ", termo1)
+            escreval ("Termo 2:  ", termo2)
 
-            // Atualiza os valores para a próxima iteração
-            primeiro_termo_fib <- segundo_termo_fib
-            segundo_termo_fib <- proximo_termo_fib
-         fimpara
+            // Calcula e exibe os próximos 50 termos (termos 3 a 52)
+            para contador de 3 ate 52 faca
+               termo_seguinte <- termo1 + termo2
+               escreval ("Termo ", contador, ": ", termo_seguinte)
 
-         escreval ("")
-         escreval ("Sequência de Fibonacci completa com 52 termos!")
-         escreval ("")
+               // Atualiza os valores para a próxima iteração
+               termo1 <- termo2
+               termo2 <- termo_seguinte
+            fimpara
+
+            escreval ("")
+            escreval ("Sequência de Fibonacci completa com 52 termos!")
+            escreval ("")
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
 
       caso 7
+         // Sequencia fatorial
+
+         enquanto (continuar = "S") ou (continuar = "s") faca
+
+            escreva ("Digite um número para ver a sua sequência fatorial: ")
+            leia (k)
+            escreval ("")
+
+            enquanto k < 0 faca
+               escreval("Erro: Só é possivel calcular o fatorial de números positivos.")
+               leia (k)
+               escreval ("")
+            fimenquanto
+
+            escreval ("Sequência Fatorial de 0! até ", k, "! ")
+
+            para i de 0 ate k faca
+
+               resultado <- 1
+
+               para j de 1 ate i faca
+                  resultado <- resultado * j
+               fimpara
+
+               escreval (i, "! = ", resultado)
+            fimpara
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
+
+      caso 8
+         // Triangulos perfeitos
+
+         enquanto (continuar = "S") ou (continuar = "s") faca
+
+            // Pede um numero ate ser valido
+            repita
+               escreva("Digite o termo (inteiro e positivo) que deseja calcular: ")
+               leia(n)
+
+               // Adiciona a validacao: n deve ser positivo e igual a sua parte inteira
+               se (n < 1) ou (n <> int(n)) entao
+                  escreval("Valor inválido! Insira um número inteiro positivo.")
+               fimse
+
+            ate (n >= 1) e (n = int(n)) // Condi  o de sa da: n   positivo e   inteiro
+
+            // Converte n para inteiro para o resto do c lculo
+            m_base_calc <- int(n)
+
+            // Calcula o n- simo termo e os 50 seguintes
+            escreval("")
+
+            para i de 0 ate 50 faca
+               m <- m_base_calc + i
+               termos[i + 1] <- (m * (m + 1)) div 2
+            fimpara
+
+            // Mostra o termo correspondente e os 50 seguintes
+            escreval("O ", m_base_calc, "  termo da sequência de triângulos perfeitos  : ", termos[1])
+            escreval("")
+            escreval("Os 50 termos seguintes são:")
+
+            para i de 2 ate 51 faca
+               escreval("T -", m_base_calc + i - 1, " = ", termos[i])
+            fimpara
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
+
+      caso 9
+         // Quadrados perfeitos
+
+         enquanto (continuar = "S") ou (continuar = "s") faca
+
+            // Entrada
+            escreva ("Digite o valor de n (inteiro positivo): ")
+            leia (K)
+
+            // validação simples
+            enquanto (K < 1) faca
+               escreval ("")
+               escreva ("Valor inválido, digite um número inteiro e positivo: ")
+               leia (K)
+            fimenquanto
+
+            // calcula o enésimo termo (quadrado perfeito)
+            termoK := K * K
+            escreval ("")
+            escreval ("Enésimo termo: (n = ", K, ") -> ", termoK)
+            escreval ("")
+
+            // mostra os próximos 50 termos da sequência de quadrados perfeitos
+            escreval ("Próximos 50 termos (índice -> valor):")
+            escreval ("")
+            para i := K + 1 ate K + 50 faca
+               escreval (i, " -> ", i * i)
+            fimpara
+
+            escreval ("")
+            escreva ("Deseja continuar a execução? (S/N) ")
+            leia (continuar)
+            escreval ("")
+
+         fimenquanto
+
+      caso 10
 
       fimescolha
 
